@@ -1,70 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Be My Valentine 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiiso Tech Solutions | Hardware & Software Experts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --primary-orange: #e87e35;
+            --primary-dark: #d65a18;
+            --secondary-blue: #2c3e50;
+            --bg-light: #f4f7f6;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--white); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; }
+        
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .text-center { text-align: center; }
+        .grid { display: grid; gap: 30px; }
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+        /* --- BUTTONS --- */
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border: none; }
+        .btn-primary { background-color: var(--primary-orange); color: var(--white); }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary-orange); color: var(--primary-orange); background: transparent; }
+        .btn-outline:hover { background: var(--primary-orange); color: var(--white); }
+
+        /* --- NAVIGATION --- */
+        nav { background: var(--white); padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--secondary-blue); display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--primary-orange); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; color: var(--secondary-blue); }
+        .nav-links a:hover { color: var(--primary-orange); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1531297461136-82lw8fca16c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 160px 0 100px; text-align: center;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        /* --- SERVICES SECTION --- */
+        .service-card { background: var(--bg-light); padding: 40px; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; text-align: center; }
+        .service-card:hover { transform: translateY(-5px); border-bottom-color: var(--primary-orange); background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .service-icon { width: 70px; height: 70px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; color: var(--primary-orange); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .service-card h3 { margin-bottom: 15px; color: var(--secondary-blue); }
+
+        /* --- FEATURED PRODUCT (FLEETTRACK) --- */
+        .featured-product { background-color: var(--secondary-blue); color: var(--white); position: relative; overflow: hidden; }
+        .product-badge { background: var(--primary-orange); color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+        .check-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; opacity: 0.9; }
+        .check-list i { color: var(--primary-orange); }
+
+        /* --- CONTACT --- */
+        .contact-form { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .form-input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        .form-input:focus { border-color: var(--primary-orange); outline: none; }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #aaa; padding: 50px 0; text-align: center; border-top: 3px solid var(--primary-orange); }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-          <video autoplay muted loop playsinline class="hero-video">
-      <source src="./Diep n.MP4" type="video/mp4">
-    </video>
-    <div class="overlay">
-      <h1>Will You Be My Valentine? 💕</h1>
-      <p>Lethabo la ka</p>
-      <button onclick="scrollToSection()">Continue</button>
-    </div>
-  </section>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-layer-group"></i> SMIISO TECH
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hardware">Hardware Repairs</a></li>
+                <li><a href="#software">Custom Software</a></li>
+                <li><a href="#fleettrack">FleetTrack</a></li>
+                <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color: white;">Get a Quote</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- GALLERY -->
-  <section class="gallery">
-    <h2>Moments I Love With uMnikazi we smile sam</h2>
-    <div class="grid">
-      <img src="./Aurum.jpeg" alt="memory 1">
-      <img src="./Bible Study.JPEG" alt="memory 2">
-      <img src="./Karting.JPEG" alt="memory 2">
-      <img src="./Indoor.JPEG" alt="memory 2">
+    <section class="hero">
+        <div class="container">
+            <h1>We Fix Devices.<br>We Streamline Business.</h1>
+            <p>Your complete technology partner. From laptop repairs and hardware upgrades to custom software that organizes your operations.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="#hardware" class="btn btn-primary">Fix My Device</a>
+                <a href="#software" class="btn btn-outline" style="border-color: white; color: white;">Business Solutions</a>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  </section>
+    <section id="services" class="section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2 style="font-size: 32px; color: var(--secondary-blue); margin-bottom: 10px;">Our Core Services</h2>
+                <p style="color: var(--text-light);">Hardware expertise meets software innovation.</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="service-card" id="hardware">
+                    <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <h3>Hardware Repairs</h3>
+                    <p>Expert diagnosis and repair for laptops and desktops. We handle screen replacements, battery issues, keyboard fixes, and water damage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Upgrades & Maintenance</h3>
+                    <p>Is your PC slow? We install SSDs, upgrade RAM, and perform deep cleaning to make your old computer run like new.</p>
+                </div>
+                <div class="service-card" id="software">
+                    <div class="service-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Custom Software</h3>
+                    <p>We build web applications and digital tools tailored to your business needs, helping you move from paper to digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- MESSAGE -->
-  <section class="message">
-    <h2>Why You?</h2>
-    <p>
-      You make life worth living. With you, life feels much better. Unguncumo lwami wena.
-    </p>
-  </section>
+    <section id="fleettrack" class="section featured-product">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center;">
+                <div>
+                    <div class="product-badge">Featured Solution</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px;">FleetTrack Logistics System</h2>
+                    <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">
+                        A prime example of how we streamline complex business processes. FleetTrack is a custom-built solution for logistics companies to manage maintenance and driver shifts.
+                    </p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Digital Check-In/Out logic.</li>
+                        <li><i class="fas fa-check-circle"></i> Preventative maintenance blocking.</li>
+                        <li><i class="fas fa-check-circle"></i> QR Code asset tracking.</li>
+                        <li><i class="fas fa-check-circle"></i> Mechanic approval workflows.</li>
+                    </ul>
+                    <br>
+                    <a href="#contact" class="btn btn-primary" style="background: white; color: var(--secondary-blue);">Request a Demo</a>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-tablet-alt" style="font-size: 250px; color: rgba(255,255,255,0.1);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FINAL ASK -->
-  <section class="ask">
-    <h2>So… 💌</h2>
-    <button onclick="acceptValentine()">Yes, I’ll Be Your Valentine</button>
-    <p id="response"></p>
-  </section>
+    <section id="contact" class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="grid grid-2">
+                <div>
+                    <h2 style="font-size: 32px; margin-bottom: 20px; color: var(--secondary-blue);">Get in Touch</h2>
+                    <p style="margin-bottom: 30px;">Whether you have a broken laptop screen or need a complex business system built, we are ready to help.</p>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: var(--primary-orange); margin-bottom: 5px;">Hardware Workshop</h4>
+                        <p>Bring your device in for a free assessment.</p>
+                    </div>
 
-  <!-- MESSAGE FORM SECTION -->
-<section class="message-form">
-  <h2>Leave Me a Message 💌</h2>
-  <p>Say anything you want… I’ll treasure it.</p>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: var(--primary-orange); margin-bottom: 5px;">Consulting</h4>
+                        <p>Book a meeting to discuss your operational bottlenecks.</p>
+                    </div>
 
-  <div class="form-container">
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfw_F5CMNW72x3fMwPz2N5gQ4VcTFndEduv9MwO6QoPaeq6rw/viewform?embedded=true"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">
-      Loading…
-    </iframe>
-  </div>
-</section>
+                    <p><strong><i class="fas fa-envelope"></i> simangaliso@smiiso.tech</strong></p>
+                    <p><strong><i class="fas fa-phone"></i> +27 12 345 6789</strong></p>
+                </div>
 
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px;">Send us a message</h3>
+                    <form>
+                        <input type="text" class="form-input" placeholder="Your Name">
+                        <input type="email" class="form-input" placeholder="Email Address">
+                        <select class="form-input">
+                            <option>I need a Laptop/PC Repair</option>
+                            <option>I need Custom Software (like FleetTrack)</option>
+                            <option>I need General IT Support</option>
+                        </select>
+                        <textarea class="form-input" rows="4" placeholder="Describe your issue or project..."></textarea>
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <div class="logo" style="justify-content: center; margin-bottom: 20px; color: white;">
+                <i class="fas fa-layer-group"></i> SMIISO TECH
+            </div>
+            <p>&copy; 2026 Smiiso Tech Solutions. All rights reserved.</p>
+            <p style="font-size: 12px; margin-top: 10px; opacity: 0.6;">Hardware Repairs | Software Development | Process Optimization</p>
+        </div>
+    </footer>
+
 </body>
 </html>
 
